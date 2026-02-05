@@ -5,6 +5,7 @@ import (
 	"crm-erp-system/database"
 	"crm-erp-system/router"
 	"log"
+	"os"
 )
 
 func main() {
@@ -21,7 +22,16 @@ func main() {
 	r := router.SetupRouter()
 
 	// 启动服务
-	port := config.AppConfig.Port
+	// port := config.AppConfig.Port
+	// Railway 等平台会注入 PORT，必须优先使用；本地仍可走配置文件
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = config.AppConfig.Port
+	}
+	if port == "" {
+		port = "8080"
+	}
+
 	log.Printf("服务启动在端口: %s", port)
 	if err := r.Run(":" + port); err != nil {
 		log.Fatalf("服务启动失败: %v", err)
