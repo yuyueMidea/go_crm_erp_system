@@ -1,1 +1,1 @@
-web: ./crm-erp-system
+web: ./out
