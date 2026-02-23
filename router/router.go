@@ -30,6 +30,7 @@ func SetupRouter() *gin.Engine {
 	r.GET("/", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"message": "GO CRM+ERP System API",
+			"author": "yuyue3",
 			"version": "1.0.0",
 		})
 	})
