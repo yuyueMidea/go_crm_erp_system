@@ -91,47 +91,6 @@ curl -X POST http://localhost:8080/api/v1/customers \
   }'
 ```
 
-## Koyeb 部署
-
-### 1. 前置准备
-
-- GitHub/GitLab 账号
-- Koyeb 账号（https://www.koyeb.com/）
-
-### 2. 推送代码到 Git 仓库
-
-```bash
-git init
-git add .
-git commit -m "Initial commit"
-git remote add origin YOUR_REPO_URL
-git push -u origin main
-```
-
-### 3. 在 Koyeb 创建应用
-
-1. 登录 Koyeb 控制台
-2. 点击 "Create App"
-3. 选择 GitHub/GitLab 仓库
-4. 配置环境变量：
-   - `JWT_SECRET`: 设置强密钥（必须）
-   - `DB_PATH`: `/data/crm_erp.db`（建议）
-5. 点击 "Deploy"
-
-### 4. 验证部署
-
-```bash
-curl https://your-app.koyeb.app/
-```
-
-预期返回：
-```json
-{
-  "message": "CRM+ERP System API",
-  "version": "1.0.0"
-}
-```
-
 ## 项目结构
 
 ```
